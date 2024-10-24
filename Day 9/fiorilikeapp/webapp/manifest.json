@@ -1,0 +1,92 @@
+{
+    "sap.app": {
+        "id": "mt.fin.ap.ab",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "ach": "FIN-ACC-AP",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}"
+    },
+    "sap.ui":{
+        "fullWidth": true,
+        "supportedThemes": ["sap_fiori_3","sap_fiori_3_dark"],
+        "deviceTypes":{
+            "desktop": true,
+            "phone": true,
+            "tablet": true 
+        },
+        "technology": "UI5"
+    },
+    "sap.ui5":{
+        "contentDensities": {"compact": true, "cozy": true},
+        "dependencies": {
+            "minUI5Version": "1.112.0",
+            "libs": {
+                "sap.ui.core": {
+                    "minVersion": "1.112.0"
+                },
+                "sap.m" :{
+                    "minVersion": "1.112.0"
+                }
+            }
+        },
+        "rootView":{
+            "viewName": "mt.fin.ap.ab.view.App",
+            "type": "XML",
+            "id": "idRoot"
+        },
+        "routing": {
+            "config":{
+                "viewPath": "mt.fin.ap.ab.view",
+                "viewType": "XML",
+                "controlId": "idAppCon",
+                "clearControlAggregation": true
+            },
+            "routes": [
+                {
+                    "name": "master",
+                    "pattern": "",
+                    "target": ["modi","biden"]                    
+                },
+                {
+                    "name": "detail",
+                    "pattern": "fruits/{fruitPath}",
+                    "target": ["modi","fruit"]
+                }            
+            ],
+            "targets": {
+                "modi":{
+                    "viewId": "idMaster",
+                    "viewName": "View1",
+                    "controlAggregation": "masterPages"                                        
+                },
+                "biden":{
+                    "viewId": "idEmpty",
+                    "viewName": "Empty",
+                    "controlAggregation": "detailPages"
+                },
+                "fruit":{
+                    "viewId": "idView2",
+                    "viewName": "View2",
+                    "controlAggregation": "detailPages"
+                }
+
+            }            
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleUrl": "i18n/i18n.properties"
+                }
+            },
+            "": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "mockdata/fruits.json"
+            }
+        }
+    }
+}
