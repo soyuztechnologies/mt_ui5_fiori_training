@@ -1,0 +1,6 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+controllerName="mt.fin.ap.ab.controller.Empty">
+    <Page title="Empty">
+        <Image src="https://thumbs.dreamstime.com/b/laughing-buddha-statue-serene-mountain-landscape-sunset-joyful-laughing-buddha-statue-sits-serenely-amidst-tranquil-334469673.jpg" />
+    </Page>
+</mvc:View>
